@@ -1,0 +1,40 @@
+{
+  "name": "fudejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "author": "im-cuttlefish",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.19.1",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.1",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.7.2",
+    "url-loader": "^2.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@types/animejs": "^3.1.0",
+    "@types/pixi.js": "^4.8.9",
+    "animejs": "^3.1.0",
+    "effector": "^20.4.2",
+    "pixi.js": "^5.1.5"
+  }
+}

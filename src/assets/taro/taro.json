@@ -1,0 +1,7 @@
+{
+  "name": "taro",
+  "assets": {
+    "default": "body.png",
+    "smile": "body.copy.png"
+  }
+}

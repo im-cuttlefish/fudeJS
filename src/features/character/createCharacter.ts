@@ -3,8 +3,7 @@ import { Character } from "./types";
 import { Sprite } from "pixi.js";
 
 export const createCharacter = (id: string, image: string): Character => {
-  const { configs } = scenario.getState()!;
-  const { character } = configs;
+  const { character } = scenario.getState()!.configs;
   const config = character.find(x => x.id === id);
 
   if (!config) {

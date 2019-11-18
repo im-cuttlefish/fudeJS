@@ -28,7 +28,7 @@ characterEvent.watch(payload => {
         alpha: 1,
         easing: "linear",
         duration: 1000,
-        update: () => update()
+        complete: () => update()
       });
     }
     /*

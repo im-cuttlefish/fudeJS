@@ -3,6 +3,7 @@ import { Container, Sprite } from "pixi.js";
 import { currentCommand } from "features/system/store";
 import { update } from "features/system/events";
 import { scenario } from "features/global/store";
+import { createBackground } from "./createBackground";
 
 export const backgroundRoot = new Container();
 
@@ -14,15 +15,8 @@ backgroundEvent.watch(payload => {
   switch (payload.command) {
     case "set-background": {
       const { id } = payload;
-      const { background } = scenario.getState()!.configs;
-      const config = background.find(x => x.id === id);
-
-      if (!config) {
-        throw new Error(`Background Error: background "${id}" is not defined`);
-      }
-
       const prev = backgroundRoot.children[0];
-      const sprite = Sprite.from(config.image);
+      const sprite = createBackground(id);
       backgroundRoot.addChild(sprite);
 
       sprite.alpha = 0;

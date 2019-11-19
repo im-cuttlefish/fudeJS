@@ -22,13 +22,25 @@ characterEvent.watch(payload => {
       characters.push(character);
       characterRoot.addChild(sprite);
 
+      const { length } = characters;
       sprite.alpha = 0;
+      sprite.x = (500 * length) / (length + 1);
+
       anime({
         targets: sprite,
         alpha: 1,
         easing: "linear",
         duration: 1000,
         complete: () => update()
+      });
+
+      characters.forEach(({ sprite }, index) => {
+        anime({
+          targets: sprite,
+          x: ((index + 1) * 500) / (length + 1),
+          easing: "linear",
+          duration: 1000
+        });
       });
     }
     /*

@@ -1,8 +1,7 @@
 import anime from "animejs";
-import { Container, Sprite } from "pixi.js";
+import { Container } from "pixi.js";
 import { currentCommand } from "features/system/store";
 import { update } from "features/system/events";
-import { scenario } from "features/global/store";
 import { createBackground } from "./createBackground";
 
 export const backgroundRoot = new Container();

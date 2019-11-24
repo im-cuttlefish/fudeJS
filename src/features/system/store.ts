@@ -1,6 +1,6 @@
 import { update } from "./events";
 import { combine } from "effector";
-import { scenario } from "../global/store";
+import { scenario } from "../loader/store";
 import { systemDomain } from "./domain";
 
 const commandList = scenario.map(store => (store && store.commandList) || []);

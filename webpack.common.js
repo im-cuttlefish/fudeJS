@@ -14,6 +14,11 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        test: /\.json$/,
+        use: "json-loader",
+        type: "javascript/auto"
+      },
+      {
         test: /\.tsx?$/i,
         use: "ts-loader",
         exclude: /node_modules/

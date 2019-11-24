@@ -1,4 +1,4 @@
-import { scenario } from "features/global/store";
+import { scenario } from "features/loader/store";
 import { Sprite } from "pixi.js";
 
 export const createBackground = (id: string) => {

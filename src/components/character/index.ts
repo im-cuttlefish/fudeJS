@@ -2,7 +2,8 @@ import { Container } from "pixi.js";
 import { currentCommand } from "features/system/store";
 import { update } from "features/system/events";
 import { Character } from "./Character";
-import { scenario } from "features/global/store";
+import { getConfig } from "./getConfig";
+import { screenWidth } from "config.json";
 
 export const characterRoot = new Container();
 
@@ -12,27 +13,22 @@ const characterEvent = currentCommand.updates.filterMap(payload => {
 
 const characters: Character[] = [];
 
-const getConfig = (id: string) => {
-  const { configs } = scenario.getState()!;
-  return configs.character.find(x => x.id === id)!;
-};
-
 characterEvent.watch(async payload => {
   switch (payload.command) {
     case "add-character": {
       const { id, image } = payload;
+      const { length } = characters;
       const config = getConfig(id);
       const character = new Character(config, image);
+      const x = (screenWidth * (length + 1)) / (length + 2);
 
-      character.moveTo({ x: 250 }, 0);
+      character.moveTo({ x }, 0);
       characters.push(character);
       characterRoot.addChild(character.view);
 
-      const { length } = characters;
-
       const fadein = character.fadeIn();
-      const moveTo = characters.map((character, index) =>
-        character.moveTo({ x: ((index + 1) * 500) / (length + 1) })
+      const moveTo = characters.map((character, index, { length }) =>
+        character.moveTo({ x: ((index + 1) * screenWidth) / (length + 1) })
       );
 
       await Promise.all([fadein, ...moveTo]);

@@ -1,6 +1,7 @@
 import anime from "animejs";
 import { Sprite, Container } from "pixi.js";
 import { CharacterConfig } from "types";
+import { screenHeight } from "config.json";
 
 interface Point {
   x: number;
@@ -12,9 +13,13 @@ export class Character {
   public view: Container;
 
   constructor(private config: CharacterConfig, image = "default") {
-    const sprite = Sprite.from(config.images[image]);
     this.id = config.id;
     this.view = new Container();
+
+    const sprite = Sprite.from(config.images[image]);
+    sprite.anchor.set(0.5, 1);
+    sprite.y = screenHeight;
+
     this.view.alpha = 0;
     this.view.addChild(sprite);
   }

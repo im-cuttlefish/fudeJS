@@ -16,9 +16,10 @@ backgroundEvent.watch(payload => {
       const { id } = payload;
       const prev = backgroundRoot.children[0];
       const sprite = createBackground(id);
-      backgroundRoot.addChild(sprite);
 
+      backgroundRoot.addChild(sprite);
       sprite.alpha = 0;
+
       anime({
         targets: sprite,
         alpha: 1,

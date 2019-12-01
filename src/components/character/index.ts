@@ -54,15 +54,14 @@ characterEvent.watch(async payload => {
 
     case "change-image": {
       const { id, image } = payload;
-      const config = getConfig(id);
-      const prev = characters.find(x => x.id === id);
+      const character = characters.find(x => x.id === id);
 
-      if (!prev) {
+      if (!character) {
         console.error(`Character Error: "${id}" is not added.`);
         return;
       }
 
-      const next = new Character(config, image);
+      character.changeImage(image);
     }
   }
 });
